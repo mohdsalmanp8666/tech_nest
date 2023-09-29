@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
             Container(
               height: 70,
               margin: const EdgeInsets.only(top: 20),
-              padding: const EdgeInsets.only(left: 20, right: 10),
+              padding: const EdgeInsets.only(left: 20, right: 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 5),
                     child: GestureDetector(
                       onTap: () {
-                        print("Profile Avatar Clicked");
+                        Navigator.pushNamed(context, '/profileScreen');
                       },
                       child: CircleAvatar(
                         backgroundColor: primaryColor,
@@ -74,6 +74,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-
-

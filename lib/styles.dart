@@ -1,5 +1,15 @@
 import 'package:flutter/material.dart';
 
+// * Default Margin
+const double defaultMargin = 15;
+
+// * AppBar measurements
+const double appBarHeight = 70;
+const double appBarMargin = 20; // Only at top i.e. EdgeInsets.only(top: 20);
+// Only Left and Right i.e. EdgeInsets.only(left: 20, right: 10),
+const double appBarPaddingLeft = 20;
+const double appBarPaddingRight = 15;
+
 // * Colors to be used in the whole app
 const primaryColor = Color(0xFF1F75FE);
 const secondaryColor = Color(0xFF0063B2);

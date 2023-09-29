@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:tech_nest/pages/dashboard.dart';
 import 'package:tech_nest/pages/login.dart';
 import 'package:tech_nest/pages/onBoaring.dart';
+import 'package:tech_nest/pages/profile.dart';
 import 'package:tech_nest/providers/bottomNavProvider.dart';
 import 'package:tech_nest/providers/homeProvider.dart';
 import 'package:tech_nest/providers/loginProvider.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
           '/onBoardingScreen': (context) => const OnBoardingScreen(),
           '/loginScreen': (context) => const LoginScreen(),
           '/dashboardScreen': (context) => const DashBoardNav(),
+          '/profileScreen': (context) => const ProfileScreen(),
         },
       ),
     );
