@@ -105,13 +105,15 @@ class QuickActionSection extends StatelessWidget {
           ),
         ),
         Container(
-          height: 150,
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          height: 110,
+          // color: errorColor,
+          padding: const EdgeInsets.fromLTRB(15, 7, 15, 7),
           child: Consumer<HomeProvider>(
               builder: (context, quickActionProvider, child) {
             return ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: context.watch<HomeProvider>().quickActions.length,
+                itemCount: 3,
+                //  context.watch<HomeProvider>().quickActions.length,
                 itemBuilder: (context, index) {
                   var data = context.watch<HomeProvider>().quickActions;
                   return QuickActionTile(
@@ -168,10 +170,10 @@ class QuickActionTile extends StatelessWidget {
       },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 5),
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        padding: const EdgeInsets.only(top: 05, left: 15, right: 15),
         decoration: BoxDecoration(
           color: primaryColor,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(8),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -185,9 +187,9 @@ class QuickActionTile extends StatelessWidget {
                         color: enabled == false
                             ? Colors.white.withOpacity(0.5)
                             : Colors.white,
-                        size: 35,
+                        size: 30,
                       ),
-                const SizedBox(width: 15),
+                const SizedBox(width: 10),
                 Text(
                   heading,
                   style: headLine(
@@ -219,11 +221,115 @@ class QuickActionTile extends StatelessWidget {
                       ? Colors.white.withOpacity(0.5)
                       : Colors.white),
             ),
-            const SizedBox(height: 10),
+            // const SizedBox(height: 10),
             // Text("$enabled"),
           ],
         ),
       ),
+    );
+  }
+}
+
+// ! Active Devices Widget/s
+
+// * Active Devices Main Section
+class ActiveDevicesSection extends StatelessWidget {
+  const ActiveDevicesSection({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        // * Active Devices Text
+        Container(
+          alignment: Alignment.centerLeft,
+          margin: const EdgeInsets.only(top: 20),
+          padding: const EdgeInsets.only(left: 20, bottom: 5),
+          child: Text(
+            "Active Devices",
+            style: headLine(h5, FontWeight.w500, greyColor),
+          ),
+        ),
+        // * Active Devices Row
+        Container(
+          height: 175,
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          child: Consumer<HomeProvider>(
+              builder: (context, activeDevicesProvider, child) {
+            return ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 1,
+                itemBuilder: (context, index) {
+                  var data = context.watch<HomeProvider>().quickActions;
+                  return Container(
+                    width: 150,
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: secondaryColor.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        // * For Icon and Radio Button
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Icon(
+                              Icons.air,
+                              size: 35,
+                            ),
+                            // TODO: Have to design custom radio button
+                            Container(
+                              width: 50,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                color: primaryColor,
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                            ),
+                          ],
+                        ),
+                        // * For Device name and Room name
+                        Container(
+                          height: 70,
+                          width: double.infinity,
+                          alignment: Alignment.bottomLeft,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                "A C",
+                                style: headLine(h4, FontWeight.w400, greyColor),
+                              ),
+                              const SizedBox(height: 10),
+                              Text(
+                                "Living Room",
+                                style: headLine(body, FontWeight.normal,
+                                    greyColor.withOpacity(0.6)),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                  //  QuickActionTile(
+                  //   index: index,
+                  //   icon: IconData(data[index].taskIcon,
+                  //       fontFamily: 'MaterialIcons'),
+                  //   heading: data[index].taskName,
+                  //   subText1: data[index].scheduledTime,
+                  //   subText2: "${data[index].devices} Devices",
+                  //   enabled: data[index].enabled,
+                  // );
+                });
+          }),
+        ),
+      ],
     );
   }
 }

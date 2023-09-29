@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tech_nest/models/quickActionsModel.dart';
 
 class HomeProvider with ChangeNotifier {
+  // ! Quick Actions Data
   List<QuickActionsModel> quickActions = [
     QuickActionsModel(
       taskIcon: 0xf0575,
@@ -36,19 +38,10 @@ class HomeProvider with ChangeNotifier {
     quickActions[i].enabled = !state;
     notifyListeners();
   }
-}
 
-class QuickActionsModel {
-  int taskIcon;
-  String taskName;
-  String scheduledTime;
-  int devices;
-  bool enabled;
-  QuickActionsModel({
-    this.taskIcon = 0xf03c3,
-    required this.taskName,
-    required this.scheduledTime,
-    required this.devices,
-    required this.enabled,
-  });
+
+  // ! Active Devices Data
+  
+
+
 }

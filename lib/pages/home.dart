@@ -55,11 +55,8 @@ class HomeScreen extends StatelessWidget {
                       // * Quick Actions
                       const QuickActionSection(),
                       // * Active Devices
-                      Container(
-                        height: 350,
-                        width: MediaQuery.of(context).size.width,
-                        color: secondaryColor,
-                      ),
+                      // TODO: Changing Active Devices section to Pinned Devices
+                      const ActiveDevicesSection(),
                       // * Rooms
                       Container(
                         height: 350,
@@ -77,4 +74,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+
 
